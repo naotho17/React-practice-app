@@ -21,7 +21,10 @@ export const Login: VFC = memo(() => {
         <Heading as="h1" size="lg" textAlign="center">
           ユーザー管理アプリ
         </Heading>
+
+        {/* Deviderを使えばmarginのy軸を4pxずつ開けてくれる */}
         <Divider my={4} />
+
         <Stack spacing={5} py={4} px={10}>
           <Input
             placeholder="ユーザーID"
