@@ -32,6 +32,7 @@ export const Login: VFC = memo(() => {
             onChange={onChangeUserID}
           />
           <PrimaryButton
+            // userIDが空だったらdisabledを発動する
             disabled={userID === ""}
             loading={loading}
             onClick={onClickLogin}
