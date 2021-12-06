@@ -10,17 +10,21 @@ import {
 } from "@chakra-ui/react";
 
 import { UserCard } from "../organisms/user/UserCard";
-import { useAllUsers } from "../../hooks/useAllUsers";
 import { UserDetailModal } from "../organisms/user/UserDetailModal";
+import { useAllUsers } from "../../hooks/useAllUsers";
+import { useSelectUser } from "../../hooks/useSelectUser";
 
 export const UserManagement: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getUsers, users, loading } = useAllUsers();
+  const { onSelectUser, selectedUser } = useSelectUser();
 
-  // 第二引数を空文字にすることで初回だけuseEffectが発動する
   useEffect(() => getUsers(), []);
 
-  const onClickUser = useCallback(() => onOpen(), []);
+  const onClickUser = useCallback((id: number) => {
+    console.log(id);
+    onOpen();
+  }, []);
 
   return (
     <>
@@ -33,6 +37,7 @@ export const UserManagement: VFC = memo(() => {
           {users.map((user) => (
             <WrapItem key={user.id} mx="auto">
               <UserCard
+                id={user.id}
                 imageUrl="https://source.unsplash.com/random"
                 userName={user.username}
                 fullName={user.name}
