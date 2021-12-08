@@ -17,7 +17,7 @@ export const Logout: VFC = memo(() => {
 
   return (
     <Flex align="center" justify="center">
-      <Link onClick={onClicktoLoginPage} mt={10}>
+      <Link onClick={onClicktoLoginPage} mt={10} color="blue.600">
         ログインはこちら
       </Link>
     </Flex>
