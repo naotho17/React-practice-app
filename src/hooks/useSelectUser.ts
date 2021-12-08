@@ -11,7 +11,6 @@ type Props = {
 // 選択したユーザー情報を特定しモーダルを表示するカスタムフック
 export const useSelectUser = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-
   const onSelectUser = useCallback((props: Props) => {
     const { id, users } = props;
     // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/find
